@@ -1,21 +1,16 @@
 package com.example.BPMservices;
 
-import java.sql.Array;
-import java.sql.Date;
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CustomerRecord {
 
     private int Id;
-
     private int ExcelID;
     private Timestamp CreatedAt;
     private String CreatedBy;
     private String CustomerData;
     private String Status;
+    private String ErrorMessage;
 
     public CustomerRecord(int id, int excelID, Timestamp createdAt, String createdBy, String customerData,
             String status) {
@@ -81,6 +76,14 @@ public class CustomerRecord {
 
     public void setStatus(String status) {
         Status = status;
+    }
+
+    public String getErrorMessage() {
+        return ErrorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        ErrorMessage = errorMessage;
     }
 
 }
