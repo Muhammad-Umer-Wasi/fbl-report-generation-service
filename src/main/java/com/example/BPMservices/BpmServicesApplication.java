@@ -1,14 +1,10 @@
 package com.example.BPMservices;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.TimerTask;
+import java.util.stream.Collectors;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -45,38 +41,49 @@ public class BpmServicesApplication implements CommandLineRunner {
 
 	@Scheduled(fixedDelay = 30000, initialDelay = 30000)
 	public void generateReport() throws Exception {
+		System.out.println("Generate Report CRON job working!");
+
 		try {
-			int ID = 91;
+			// AND excelSheet.IS_REPORT_GEN_REQUESTED = 1
+			ArrayList<Integer> excelSheetIDs = new ArrayList();
 			List<CustomerRecord> allCustomerRecords = jdbcTemplate.query(
-					"SELECT * FROM BULK_ACCOUNT_CUSTOMER_ENTRIES WHERE EXCEL_ID=" + ID,
-					(rs, rowNum) -> new CustomerRecord(rs.getInt("ID"), rs.getInt("EXCEL_ID"), rs.getTimestamp("CREATED_AT"),
-							rs.getString("CREATED_BY"), rs.getString("CUSTOMER_RECORD"), rs.getString("STATUS")));
+					"SELECT customerEntries.*  FROM BULK_ACCOUNT_CUSTOMER_ENTRIES customerEntries INNER JOIN BULK_ACCOUNT_EXCEL_SHEET excelSheet ON customerEntries.EXCEL_ID = excelSheet.id AND customerEntries.status = 'Valid' AND excelSheet.IS_REPORT_GEN_REQUESTED = 1 AND excelSheet.STATUS = 'Inprogress' AND excelSheet.ARE_INSTANCES_CREATED = 0",
+					(rs, rowNum) -> {
+						excelSheetIDs.add(rs.getInt("EXCEL_ID"));
+						return new CustomerRecord(rs.getInt("ID"), rs.getInt("EXCEL_ID"),
+								rs.getTimestamp("CREATED_AT"),
+								rs.getString("CREATED_BY"), rs.getString("CUSTOMER_RECORD"),
+								rs.getString("STATUS"));
+					});
 
 			TemplateLoader loader = new ClassPathTemplateLoader("/handlebars", ".html");
 			Handlebars handlebars = new Handlebars(loader);
 			Template template = handlebars.compile("template");
 			String templateString = template.apply(allCustomerRecords);
 
-			System.out.println(templateString);
+			FileWriter myWriter = new FileWriter("filename.html");
+			myWriter.write(templateString);
+			myWriter.close();
 
-			try {
-				FileWriter myWriter = new FileWriter("filename.html");
-				myWriter.write(templateString);
-				myWriter.close();
+			List<Integer> unqiueExcelSheetIDs = excelSheetIDs.stream().distinct().collect(Collectors.toList());
 
-			} finally {
+			System.out.println("EXCEL SHEET RECORDS TO BE UPDATED: " + unqiueExcelSheetIDs);
 
-			}
-			allCustomerRecords.forEach(us -> {
-				String one = us.getCustomerData();
-				// System.out.println(" outer: " + one);
-				String[] parts = one.split("^");
-				ArrayList<String> elephantList = new ArrayList<>(Arrays.asList(us.getCustomerData().split("\\^")));
-				System.out.println(" Inner 1: " + elephantList);
-				elephantList.forEach(record -> {
-					System.out.println(record);
-				});
+			List<Object[]> batch = new ArrayList<>();
+
+			unqiueExcelSheetIDs.forEach(entry -> {
+				Object[] values = new Object[] {
+						"Completed",
+						entry,
+				};
+				batch.add(values);
 			});
+
+			// Updating the status and error (if any) of the customer entries
+			jdbcTemplate.batchUpdate("UPDATE BULK_ACCOUNT_EXCEL_SHEET SET STATUS = ? WHERE ID = ?", batch);
+
+			System.out.println("Report Generated!");
+			System.out.println("Successfully updated the database.");
 
 		} catch (Exception ex) {
 			System.out.println("error running thread " + ex.getMessage());
