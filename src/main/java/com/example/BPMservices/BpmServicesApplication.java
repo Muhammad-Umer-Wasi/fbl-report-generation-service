@@ -44,10 +44,9 @@ public class BpmServicesApplication implements CommandLineRunner {
 		System.out.println("Generate Report CRON job working!");
 
 		try {
-			// AND excelSheet.IS_REPORT_GEN_REQUESTED = 1
 			ArrayList<Integer> excelSheetIDs = new ArrayList();
 			List<CustomerRecord> allCustomerRecords = jdbcTemplate.query(
-					"SELECT customerEntries.*  FROM BULK_ACCOUNT_CUSTOMER_ENTRIES customerEntries INNER JOIN BULK_ACCOUNT_EXCEL_SHEET excelSheet ON customerEntries.EXCEL_ID = excelSheet.id AND customerEntries.status = 'Valid' AND excelSheet.IS_REPORT_GEN_REQUESTED = 1 AND excelSheet.STATUS = 'Inprogress' AND excelSheet.ARE_INSTANCES_CREATED = 0",
+					"SELECT customerEntries.* FROM BULK_ACCOUNT_CUSTOMER_ENTRIES customerEntries INNER JOIN BULK_ACCOUNT_EXCEL_SHEET excelSheet ON customerEntries.EXCEL_ID = excelSheet.id AND customerEntries.status = 'Valid' AND excelSheet.IS_REPORT_GEN_REQUESTED = 1 AND excelSheet.STATUS = 'Inprogress' AND excelSheet.ARE_INSTANCES_CREATED = 0",
 					(rs, rowNum) -> {
 						excelSheetIDs.add(rs.getInt("EXCEL_ID"));
 						return new CustomerRecord(rs.getInt("ID"), rs.getInt("EXCEL_ID"),
@@ -79,7 +78,6 @@ public class BpmServicesApplication implements CommandLineRunner {
 				batch.add(values);
 			});
 
-			// Updating the status and error (if any) of the customer entries
 			jdbcTemplate.batchUpdate("UPDATE BULK_ACCOUNT_EXCEL_SHEET SET STATUS = ? WHERE ID = ?", batch);
 
 			System.out.println("Report Generated!");

@@ -9,6 +9,7 @@ public class CustomerRecord {
     private Timestamp CreatedAt;
     private String CreatedBy;
     private String CustomerData;
+    private String[] CustomerDetails;
     private String Status;
     private String ErrorMessage;
 
@@ -20,6 +21,7 @@ public class CustomerRecord {
         CreatedBy = createdBy;
         CustomerData = customerData;
         Status = status;
+        CustomerDetails = customerData.split("\\^");
     }
 
     public CustomerRecord(int excelID) {
@@ -62,10 +64,6 @@ public class CustomerRecord {
         return CustomerData;
     }
 
-    public String[] getCustomerDetails() {
-        return CustomerData.split("\\^");
-    }
-
     public void setCustomerData(String customerData) {
         CustomerData = customerData;
     }
@@ -84,6 +82,14 @@ public class CustomerRecord {
 
     public void setErrorMessage(String errorMessage) {
         ErrorMessage = errorMessage;
+    }
+
+    public String[] getCustomerDetails() {
+        return CustomerDetails;
+    }
+
+    public void setCustomerDetails(String[] customerDetails) {
+        CustomerDetails = customerDetails;
     }
 
 }
