@@ -11,15 +11,24 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
 public class DatabaseConfig {
+
+  private String DEV_URL = "jdbc:oracle:thin:@172.20.3.247:1521/bpmdbinst";
+  private String DEV_USERNAME = "BPMFBLDB";
+  private String DEV_PASSWORD = "BPMFBLDB";
+
+  private String FBL_URL = "jdbc:oracle:thin:@10.14.0.71:1521/bpmdev";
+  private String FBL_USERNAME = "BPMFBLDB";
+  private String FBL_PASSWORD = "bpmfbldb_123";
+
   @Bean
   @Primary
   @ConfigurationProperties(prefix = "spring.datasource")
   public DataSource dataSource() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource();
     dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-    dataSource.setUrl("jdbc:oracle:thin:@172.20.3.247:1521/bpmdbinst");
-    dataSource.setUsername("BPMFBLDB");
-    dataSource.setPassword("BPMFBLDB");
+    dataSource.setUrl(FBL_URL);
+    dataSource.setUsername(FBL_USERNAME);
+    dataSource.setPassword(FBL_PASSWORD);
     return dataSource;
   }
 

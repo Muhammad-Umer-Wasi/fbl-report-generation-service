@@ -39,7 +39,7 @@ public class BpmServicesApplication implements CommandLineRunner {
 		generateReport();
 	}
 
-	@Scheduled(fixedDelay = 30000, initialDelay = 30000)
+	@Scheduled(fixedDelay = 120000, initialDelay = 120000)
 	public void generateReport() throws Exception {
 		System.out.println("Generate Report CRON job working!");
 
