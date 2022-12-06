@@ -28,9 +28,7 @@ import com.github.jknack.handlebars.io.TemplateLoader;
 @SpringBootApplication
 @EnableScheduling
 public class BpmServicesApplication implements CommandLineRunner {
-	/**
-	 *
-	 */
+
 	public static void main(String[] args) {
 		SpringApplication.run(BpmServicesApplication.class, args);
 	}
@@ -38,9 +36,6 @@ public class BpmServicesApplication implements CommandLineRunner {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	/**
-	 * 
-	 */
 	public void run(String... args) throws Exception {
 		generateReport();
 	}
@@ -61,7 +56,7 @@ public class BpmServicesApplication implements CommandLineRunner {
 						return new CustomerRecord(rs.getInt("ID"), excelId,
 								rs.getTimestamp("CREATED_AT"),
 								rs.getString("CREATED_BY"), rs.getString("CUSTOMER_RECORD"),
-								rs.getString("STATUS"));
+								rs.getString("STATUS"), rs.getString("ERROR_MESSAGE"));
 					});
 
 			TemplateLoader loader = new ClassPathTemplateLoader("/handlebars", ".html");

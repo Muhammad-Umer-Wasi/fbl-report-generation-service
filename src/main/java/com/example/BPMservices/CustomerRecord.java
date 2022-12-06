@@ -16,7 +16,7 @@ public class CustomerRecord {
     private String ReportCreatedAt;
 
     public CustomerRecord(int id, int excelID, Timestamp createdAt, String createdBy, String customerData,
-            String status) {
+            String status, String errorMessage) {
         Id = id;
         ExcelID = excelID;
         CreatedAt = createdAt;
@@ -25,6 +25,7 @@ public class CustomerRecord {
         Status = status;
         CustomerDetails = customerData.split("\\^");
         ReportCreatedAt = LocalDateTime.now().toString();
+        ErrorMessage = errorMessage;
     }
 
     public CustomerRecord(int excelID) {
