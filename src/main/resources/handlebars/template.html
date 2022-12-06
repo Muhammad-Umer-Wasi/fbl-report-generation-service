@@ -6,10 +6,104 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            font-family: "Calibri", sans-serif;
+            -webkit-print-color-adjust: exact;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .bolder {
+            font-weight: bolder;
+        }
+
+        .bg-dark-gray {
+            background-color: #a3a3a3;
+        }
+
+        .bg-light-gray {
+            background-color: #d6d6d6;
+        }
+
+        ol li {
+            padding-left: 4px;
+        }
+
+        table tr td {
+            padding: 8px;
+        }
+
+        input[type="checkbox"] {
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        .rules-ol {
+            margin-left: 1rem;
+        }
+
+        .rules-ol li p {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 500px;
+            margin-bottom: 8px;
+        }
+
+        .rules-ol li p input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+    </style>
+
+
 </head>
 
 <body>
     {{#each .}}
+
+    <p style="page-break-before: always"></p>
+
+    <!-- Page Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <div class="flex items-center">
+                <h2 class="bolder">Faysal Islamic Payroll Account</h2>
+                <span class="bolder" style="margin: 0px 8px; font-size: 24px;">-</span>
+                <h3 style="font-weight: normal;">Customer Relationship Form</h3>
+            </div>
+            <p class="bold">Date: <span class="dateRightNow">{{reportCreatedAt}}</span></p>
+        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXJuRHKWy2HB7ntPmHyqZSLUWpsbz2fp9So8NE_8X&s"
+            alt="Faysal Bank" srcset="" width="225px">
+    </div>
+    <!-- Page Header End -->
+
     <table border="1" cellspacing="0" cellpadding="0">
         <tbody>
             <tr>
@@ -26,7 +120,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="19" valign="top" width="918" style="background-color: #a3a3a3;">
+                <td colspan="19" valign="top" width="918" class="bg-dark-gray">
                     <p class="TableParagraph"><strong>I - Account Holder Information</strong></p>
                 </td>
             </tr>
@@ -34,7 +128,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>1.</strong></p>
                 </td>
-                <td colspan="2" valign="top" width="240" style="background-color: #d6d6d6">
+                <td colspan="2" valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Title (Mr./Mrs./Miss etc.)</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -45,7 +139,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>2.</strong></p>
                 </td>
-                <td colspan="2" valign="top" width="240" style="background-color: #d6d6d6">
+                <td colspan="2" valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Title of Account</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -58,7 +152,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>3.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Father\Husband Name</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -69,7 +163,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>4.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>First Name</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -80,7 +174,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>5.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Middle Name</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -91,7 +185,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>6.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Last Name</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -102,7 +196,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>7.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Gender</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -113,7 +207,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>8.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>ID Type</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -124,7 +218,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>9.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>ID Number</strong></p>
                 </td>
                 <td colspan="8" valign="top" width="300">
@@ -133,39 +227,40 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>35.</strong></p>
                 </td>
-                <td colspan="4" style="background-color: #d6d6d6" valign="top" width="117">
+                <td colspan="4" class="bg-light-gray" valign="top" width="117">
                     <p class="TableParagraph"><strong>Date of Issuance</strong></p>
                 </td>
                 <td colspan="3" valign="top" width="201">
-                    <p class="TableParagraph"><strong>{{lookup customerDetails 11}}</strong></p>
+                    <p class="TableParagraph"><strong class="dateFomatter">{{lookup customerDetails 11}}</strong></p>
                 </td>
             </tr>
             <tr>
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>10.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>ID Expiry Date</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
-                    <p class="TableParagraph"><strong>{{lookup customerDetails 12}}</strong></p>
+                    <p class="TableParagraph"><strong class="dateFomatter">{{lookup customerDetails
+                            12}}</strong></p>
                 </td>
             </tr>
             <tr>
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>11</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Birth Date</strong></p>
                 </td>
                 <td colspan="8" valign="top" width="300">
                     <!-- <p class="TableParagraph">&nbsp;</p> -->
-                    <p class="TableParagraph"><strong>{{lookup customerDetails 5}}</strong></p>
+                    <p class="TableParagraph"><strong class="dateFomatter">{{lookup customerDetails 13}}</strong></p>
                 </td>
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>12.</strong></p>
                 </td>
-                <td colspan="3" valign="top" width="84" style="background-color: #d6d6d6">
+                <td colspan="3" valign="top" width="84" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Gender</strong></p>
                 </td>
                 <td colspan="4" valign="top" width="234">
@@ -179,7 +274,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>13.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Next Of Kin</strong></p>
                 </td>
                 <td colspan="8" valign="top" width="300">
@@ -189,7 +284,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>14.</strong></p>
                 </td>
-                <td colspan="3" valign="top" width="84" style="background-color: #d6d6d6">
+                <td colspan="3" valign="top" width="84" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Relation</strong></p>
                 </td>
                 <td colspan="4" valign="top" width="234">
@@ -201,7 +296,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>15.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>City of Birth</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -214,7 +309,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>16.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Country of Birth</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -225,7 +320,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>17.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Mother's Maiden Name</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -236,7 +331,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>18.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Current Residence Address</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -247,7 +342,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>19.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Residence Country</strong></p>
                 </td>
                 <td colspan="8" valign="top" width="300">
@@ -256,7 +351,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>20.</strong></p>
                 </td>
-                <td colspan="3" valign="top" width="84" style="background-color: #d6d6d6">
+                <td colspan="3" valign="top" width="84" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Postal Code</strong></p>
                 </td>
                 <td colspan="4" valign="top" width="234">
@@ -267,10 +362,10 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>21.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Telephone Number</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="117">
+                <td colspan="2" class="bg-light-gray" valign="top" width="117">
                     <p class="TableParagraph"><strong>Mobile Number</strong></p>
                 </td>
                 <td colspan="6" valign="top" width="182">
@@ -279,7 +374,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>22.</strong></p>
                 </td>
-                <td colspan="3" valign="top" width="84" style="background-color: #d6d6d6">
+                <td colspan="3" valign="top" width="84" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Residence</strong></p>
                 </td>
                 <td colspan="4" valign="top" width="234">
@@ -290,7 +385,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>23.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Email</strong></p>
                 </td>
                 <td colspan="8" valign="top" width="300">
@@ -299,7 +394,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>26.</strong></p>
                 </td>
-                <td colspan="5" valign="top" width="126" style="background-color: #d6d6d6">
+                <td colspan="5" valign="top" width="126" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Nationality</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="192">
@@ -310,7 +405,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>24.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Marital Status</strong></p>
                 </td>
                 <td colspan="8" valign="top" width="300">
@@ -319,7 +414,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>28.</strong></p>
                 </td>
-                <td colspan="5" valign="top" width="126" style="background-color: #d6d6d6">
+                <td colspan="5" valign="top" width="126" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Other Nationality</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="192">
@@ -330,7 +425,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>25.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Are you a US Citizen</strong></p>
                 </td>
                 <td colspan="8" valign="top" width="300">
@@ -344,7 +439,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>27.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Correspondence Address</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
@@ -355,7 +450,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>29.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Correspondence Country</strong></p>
                 </td>
                 <td colspan="8" valign="top" width="300">
@@ -364,10 +459,10 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>30.</strong></p>
                 </td>
-                <td colspan="5" valign="top" width="126">
+                <td colspan="5" valign="top" width="126" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Postal Code</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="192">
+                <td colspan="2" valign="top" width="192">
                     <p class="TableParagraph"><strong>{{lookup customerDetails 23}}</strong></p>
                 </td>
             </tr>
@@ -375,21 +470,21 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>31.</strong></p>
                 </td>
-                <td colspan="7" valign="top" width="430" style="background-color: #d6d6d6">
+                <td colspan="7" valign="top" width="450" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Are you or have you ever been a citizen or a tax resident of a
                             country other than Pakistan?</strong></p>
                 </td>
-                <td colspan="3" valign="top" width="85">
+                <td colspan="3" valign="top" width="75">
                     <p class="TableParagraph"><strong>Yes</strong><span>
-                            <input style="width:50px; height:20px; " type="checkbox"></input></span>
+                            <input style="width:50px; height:20px;" type="checkbox"></input></span>
                     </p>
                 </td>
-                <td colspan="3" valign="top" width="100">
+                <td colspan="3" valign="top" width="75">
                     <p class="TableParagraph"><strong>No</strong>
-                        <span><input style="width:50px; height:20px; " type="checkbox"></input></span>
+                        <span><input style="width:50px; height:20px;" type="checkbox"></input></span>
                     </p>
                 </td>
-                <td colspan="5" valign="top" width="263">
+                <td colspan="5" valign="top" width="350">
                     <p class="TableParagraph"><strong>If 'Yes', please complete the FATCA/CRS Declaration form -
                             Individual</strong></p>
                 </td>
@@ -398,7 +493,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>32.</strong></p>
                 </td>
-                <td colspan="2" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="2" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Dependant</strong></p>
                 </td>
                 <td valign="top" width="88">
@@ -407,7 +502,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph"><strong>33.</strong></p>
                 </td>
-                <td colspan="4" style="background-color: #d6d6d6" valign="top" width="113">
+                <td colspan="4" class="bg-light-gray" valign="top" width="113">
                     <p class="TableParagraph"><strong>No Of Childerns</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="70">
@@ -416,7 +511,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>34.</strong></p>
                 </td>
-                <td colspan="5" valign="top" style="background-color: #d6d6d6" width="126">
+                <td colspan="5" valign="top" class="bg-light-gray" width="126">
                     <p class="TableParagraph"><strong>Other Dependant</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="192">
@@ -427,7 +522,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>36.</strong></p>
                 </td>
-                <td colspan="1" style="background-color: #d6d6d6" valign="top" width="240">
+                <td colspan="1" class="bg-light-gray" valign="top" width="240">
                     <p class="TableParagraph"><strong>Credit Card Type</strong></p>
                 </td>
                 <td colspan="4" valign="top" width="127">
@@ -458,7 +553,7 @@
     <table border="1" cellspacing="0" cellpadding="0">
         <tbody>
             <tr>
-                <td colspan="5" valign="top" width="1000" style="background-color: #a3a3a3;">
+                <td colspan="5" valign="top" width="1000" class="bg-dark-gray">
                     <p class="TableParagraph"><strong>II - Education Qualification</strong></p>
                 </td>
             </tr>
@@ -466,7 +561,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph"><strong>1.</strong></p>
                 </td>
-                <td valign="top" width="239" style="background-color: #d6d6d6">
+                <td valign="top" width="239" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Education Level</strong></p>
                 </td>
                 <td valign="top" width="240">
@@ -504,6 +599,20 @@
     <!-- second page -->
     <p style="page-break-before: always">
 
+        <!-- Page Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <div class="flex items-center">
+                <h2 class="bolder">Faysal Islamic Payroll Account</h2>
+                <span class="bolder" style="margin: 0px 8px; font-size: 24px;">-</span>
+                <h3 style="font-weight: normal;">Customer Relationship Form</h3>
+            </div>
+            <p class="bold">Date: <span class="dateRightNow">{{reportCreatedAt}}</span></p>
+        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXJuRHKWy2HB7ntPmHyqZSLUWpsbz2fp9So8NE_8X&s"
+            alt="Faysal Bank" srcset="" width="225px">
+    </div>
+    <!-- Page Header End -->
 
     <table width="1000" border="1" cellspacing="0" cellpadding="0">
 
@@ -530,7 +639,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="12" valign="top" width="918" style="background-color: #a3a3a3;">
+                <td colspan="12" valign="top" width="918" class="bg-dark-gray">
                     <p class="TableParagraph"><strong>III - Residential / Personal Status</strong></p>
                 </td>
             </tr>
@@ -538,7 +647,7 @@
                 <td rowspan="2" valign="top" width="30">
                     <p class="TableParagraph"><strong>1.</strong></p>
                 </td>
-                <td rowspan="2" valign="top" width="240" style="background-color: #d6d6d6">
+                <td rowspan="2" valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Residential Status</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="218">
@@ -571,7 +680,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>2.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Rented house (Rent Rs. per month)</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="218">
@@ -588,7 +697,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>3.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Telephone (Res) No.</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="218">
@@ -605,7 +714,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>4.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>For how long have you been living at the recent address</strong>
                     </p>
                 </td>
@@ -617,7 +726,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>5.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Type of accomodation</strong></p>
                 </td>
                 <td valign="top" width="127">
@@ -645,7 +754,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>6.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Are you currently living here?</strong></p>
                 </td>
                 <td valign="top" width="127">
@@ -664,7 +773,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>7.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Permanent Address</strong></p>
                 </td>
                 <td colspan="10" valign="top" width="648">
@@ -675,7 +784,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>8.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>City</strong></p>
                 </td>
                 <td colspan="10" valign="top" width="648">
@@ -686,7 +795,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>9.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Do you own a car?</strong></p>
                 </td>
                 <td valign="top" width="127">
@@ -706,13 +815,15 @@
 
             <tr>
                 <td colspan="12" valign="top" width="134">
-                    <p class="TableParagraph">Please &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes or No to the following questions
+                    <p class="TableParagraph">Please<input type="checkbox" checked="true"
+                            style="margin: 0px 12px;" />Yes or No to the following
+                        questions
                         (as application):</p>
                     <p class="TableParagraph">To be completed by the Customer </p>
 
                     <div style="display: flex; flex-direction:row">
                         <div style="width: 80%;">
-                            <ol>
+                            <ol style="margin-left: 1rem;">
                                 <p>Part A</p>
                                 <li style="margin-top:10px">Are you a United States of America (?US?) citizen, a Green
                                     Card Holder or a US tax resident? </li>
@@ -748,11 +859,13 @@
                             <p><span><input style="width:50px; height:20px; margin-top:30px"
                                         type="checkbox"></input><span>Yes</span> <input style="width:50px; height:20px"
                                         type="checkbox"><span>No</span></input></p>
-                            <p><span><input style="width:50px; height:20px" type="checkbox"></input><span>Yes</span>
+                            <p><span><input style="width:50px; height:20px; margin-top: 15px;"
+                                        type="checkbox"></input><span>Yes</span>
                                     <input style="width:50px; height:20px" type="checkbox"><span>No</span></input></p>
-                            <p><span><input style="width:50px; height:20px" type="checkbox"></input><span>Yes</span>
+                            <p><span><input style="width:50px; height:20px; margin-top: 25px;"
+                                        type="checkbox"></input><span>Yes</span>
                                     <input style="width:50px; height:20px" type="checkbox"><span>No</span></input></p>
-                            <p><span><input style="width:50px; height:20px;margin-top:30px"
+                            <p><span><input style="width:50px; height:20px; margin-top:40px"
                                         type="checkbox"></input><span>Yes</span> <input style="width:50px; height:20px"
                                         type="checkbox"><span>No</span></input></p>
                         </div>
@@ -772,8 +885,22 @@
 
     <!-- third page -->
     <p style="page-break-before: always"></p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
+
+    <!-- Page Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <div class="flex items-center">
+                <h2 class="bolder">Faysal Islamic Payroll Account</h2>
+                <span class="bolder" style="margin: 0px 8px; font-size: 24px;">-</span>
+                <h3 style="font-weight: normal;">Customer Relationship Form</h3>
+            </div>
+            <p class="bold">Date: <span class="dateRightNow">{{reportCreatedAt}}</span></p>
+        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXJuRHKWy2HB7ntPmHyqZSLUWpsbz2fp9So8NE_8X&s"
+            alt="Faysal Bank" srcset="" width="225px">
+    </div>
+    <!-- Page Header End -->
+
     <table border="1" cellspacing="0" cellpadding="0">
         <tbody>
             <tr>
@@ -790,7 +917,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4" valign="top" width="918" style="background-color: #a3a3a3;">
+                <td colspan="4" valign="top" width="918" class="bg-dark-gray">
                     <p class="TableParagraph"><strong>IV - Employment Details</strong></p>
                 </td>
             </tr>
@@ -798,7 +925,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>1.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Employer Name</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -809,7 +936,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>2.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Time in Employement</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -823,7 +950,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>3.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Employement Status</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="442">
@@ -841,7 +968,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>4.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Name of previous Employer</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -852,7 +979,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>5.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Previous Employer Phone</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -866,7 +993,7 @@
                 <td rowspan="3" valign="top" width="30">
                     <p class="TableParagraph"><strong>6.</strong></p>
                 </td>
-                <td rowspan="3" valign="top" width="240" style="background-color: #d6d6d6">
+                <td rowspan="3" valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Employment / Business / Profession</strong></p>
                 </td>
                 <td valign="top" width="442" colspan="2">
@@ -915,7 +1042,7 @@
                 <td rowspan="4" valign="top" width="30">
                     <p class="TableParagraph"><strong>7.</strong></p>
                 </td>
-                <td rowspan="4" valign="top" width="240" style="background-color: #d6d6d6">
+                <td rowspan="4" valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Nature of Employer's Business</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -963,7 +1090,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>8.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Department</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -974,7 +1101,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>9.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Source of Income</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -985,7 +1112,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>10.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>City</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -996,7 +1123,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>11.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Purpose of Account</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1007,7 +1134,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>12.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Occupation</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1018,7 +1145,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>13.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Operational Instruction</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1029,7 +1156,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>14.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Office Address</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1040,7 +1167,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>15.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Nearest Landmark</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1051,7 +1178,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>16.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Office Telephone Number</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1062,7 +1189,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>17.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Designation</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1073,7 +1200,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>18.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Monthly Gross Salary</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1084,7 +1211,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>19.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Net Monthly Income</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1095,7 +1222,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>20.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Other Income</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1106,7 +1233,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="right"><strong>21.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Source of Other Income</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
@@ -1116,14 +1243,24 @@
         </tbody>
     </table>
 
-    <br></br>
-    <br></br>
-
-    <br></br>
-    <br></br>
-
     <!-- fourth page -->
     <p style="page-break-before: always"></p>
+
+    <!-- Page Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <div class="flex items-center">
+                <h2 class="bolder">Faysal Islamic Payroll Account</h2>
+                <span class="bolder" style="margin: 0px 8px; font-size: 24px;">-</span>
+                <h3 style="font-weight: normal;">Customer Relationship Form</h3>
+            </div>
+            <p class="bold">Date: <span class="dateRightNow">{{reportCreatedAt}}</span></p>
+        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXJuRHKWy2HB7ntPmHyqZSLUWpsbz2fp9So8NE_8X&s"
+            alt="Faysal Bank" srcset="" width="225px">
+    </div>
+    <!-- Page Header End -->
+
     <table border="1" cellspacing="0" cellpadding="0">
         <tbody>
             <tr>
@@ -1140,7 +1277,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="7" valign="top" width="918" style="background-color: #a3a3a3;">
+                <td colspan="7" valign="top" width="918" class="bg-dark-gray">
                     <p class="TableParagraph"><strong>III - Product Requirement Details</strong></p>
                 </td>
             </tr>
@@ -1148,7 +1285,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>S.No</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Product</strong></p>
                 </td>
                 <td colspan="5" valign="top" width="648">
@@ -1159,7 +1296,7 @@
                 <td rowspan="2" valign="top" width="30">
                     <p class="TableParagraph"><strong>1.</strong></p>
                 </td>
-                <td rowspan="2" valign="top" width="240" style="background-color: #d6d6d6">
+                <td rowspan="2" valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>ATM or Debit Card Required</strong></p>
                 </td>
                 <td valign="top" width="271">
@@ -1198,7 +1335,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>2.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Electronic Fund Transfer Internal/External</strong></p>
                 </td>
                 <td colspan="5" valign="top" width="648">
@@ -1222,7 +1359,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>3.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Cheque Book Required</strong></p>
                 </td>
                 <td colspan="5" valign="top" width="648">
@@ -1233,7 +1370,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>4.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>E-Statement</strong></p>
                 </td>
                 <td colspan="5" valign="top" width="648">
@@ -1244,7 +1381,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>5.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>SMS Alert Facility</strong></p>
                 </td>
                 <td valign="top" width="271">
@@ -1253,7 +1390,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph"><strong>8.</strong></p>
                 </td>
-                <td valign="top" width="128" style="background-color: #d6d6d6">
+                <td valign="top" width="128" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Frequency:</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="219">
@@ -1264,7 +1401,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>6.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Zakat Deduction</strong></p>
                 </td>
                 <td colspan="5" valign="top" width="648">
@@ -1282,7 +1419,7 @@
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>7.</strong></p>
                 </td>
-                <td valign="top" width="240" style="background-color: #d6d6d6">
+                <td valign="top" width="240" class="bg-light-gray">
                     <p class="TableParagraph"><strong>Debit Card Type</strong></p>
                 </td>
                 <td colspan="5" valign="top" width="648">
@@ -1331,17 +1468,19 @@
             Ltd., through the below mentioned/checked mode and confirm that I have read and understood the said Terms
             &amp; Conditions:</strong></p>
     <p><strong>&nbsp;</strong></p>
-    <ol>
-        <li><strong>a.&nbsp;&nbsp; </strong><strong>Email at my address given in [CRF/Registered with the Bank]</strong>
-            <ol>
-                <li><strong>b.&nbsp;&nbsp; </strong><strong>URL Link received via SMS at my mobile number /
-                        Physical</strong></li>
-            </ol>
+    <ol type="a" class="rules-ol">
+        <li>
+            <p>Email at my address given in [CRF/Registered with the Bank]<input type="checkbox" /></span>
+            </p>
         </li>
-        <li><strong>c.&nbsp;&nbsp; </strong><strong>The official website of Faysal Bank</strong>
-            <ol>
-                <li><strong>d.&nbsp;&nbsp; </strong><strong>[mention other source]</strong></li>
-            </ol>
+        <li>
+            <p>URL Link received via SMS at my mobile number / Physical<input type="checkbox" /></p>
+        </li>
+        <li>
+            <p>The official website of Faysal Bank<input type="checkbox" /></p>
+        </li>
+        <li>
+            <p>[mention other source]<input type="checkbox" /></p>
         </li>
     </ol>
     <p><strong>&nbsp;</strong></p>
@@ -1368,6 +1507,22 @@
 
     <!-- fifth page -->
     <p style="page-break-before: always"></p>
+
+    <!-- Page Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <div class="flex items-center">
+                <h2 class="bolder">Faysal Islamic Payroll Account</h2>
+                <span class="bolder" style="margin: 0px 8px; font-size: 24px;">-</span>
+                <h3 style="font-weight: normal;">Customer Relationship Form</h3>
+            </div>
+            <p class="bold">Date: <span class="dateRightNow">{{reportCreatedAt}}</span></p>
+        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXJuRHKWy2HB7ntPmHyqZSLUWpsbz2fp9So8NE_8X&s"
+            alt="Faysal Bank" srcset="" width="225px">
+    </div>
+    <!-- Page Header End -->
+
     <table border="1" cellspacing="0" cellpadding="0">
         <tbody>
             <tr>
@@ -1390,22 +1545,16 @@
 
     <p>Customer Self-declaration</p>
     <p>&nbsp;</p>
-    <ol>
+    <ol style="margin-left: 1rem">
         <li>I hereby confirm the information provided above is true, accurate and complete. I agree with the FATCA
             status ascertained and documents by the Bank for any account.</li>
-    </ol>
-    <p>&nbsp;</p>
-    <ol>
+        <p>&nbsp;</p>
         <li>I hereby agree that I will complete all the required documentation as required by the Bank based on the
             information provided above by me.</li>
-    </ol>
-    <p>&nbsp;</p>
-    <ol>
+        <p>&nbsp;</p>
         <li>In case of any material changes in the circumstances affecting my US person status as per FATCA, I will
             notify the Bank of such changes within 90 days of such change.</li>
-    </ol>
-    <p>&nbsp;</p>
-    <ol>
+        <p>&nbsp;</p>
         <li>Based on the information provided by me above, if I am classified as a ?US person? under FATCA, I hereby
             unequivocally (Subject to applicable local laws of Pakistan) authorize the Bank, its branches and its
             facilities (including branches) to disclose and share any information with domestic and overseas
@@ -1413,9 +1562,7 @@
             under FATCA. I understand that the Bank may be required to withhold amounts, which may be required based on
             my declaration above any Overseas Tax Authorities. I hereby authorize the Bank to withhold such amount as
             may be legally required by any tax authority and to pay such amounts to such Tax authority.</li>
-    </ol>
-    <p>&nbsp;</p>
-    <ol>
+        <p>&nbsp;</p>
         <li>I confirm that under no circumstances shall the Bank. Its employees or its contractors be liable for any
             direct, indirect, incidental, special, punitive or consequential damages that may result in any way from
             their reliance on the information I have provided. I confirm that I have provided this self- certification
@@ -1462,6 +1609,22 @@
     <!-- sixth page -->
 
     <p style="page-break-before: always"></p>
+
+    <!-- Page Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <div class="flex items-center">
+                <h2 class="bolder">Faysal Islamic Payroll Account</h2>
+                <span class="bolder" style="margin: 0px 8px; font-size: 24px;">-</span>
+                <h3 style="font-weight: normal;">Customer Relationship Form</h3>
+            </div>
+            <p class="bold">Date: <span class="dateRightNow">{{reportCreatedAt}}</span></p>
+        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXJuRHKWy2HB7ntPmHyqZSLUWpsbz2fp9So8NE_8X&s"
+            alt="Faysal Bank" srcset="" width="225px">
+    </div>
+    <!-- Page Header End -->
+
     <table border="1" cellspacing="0" cellpadding="0">
         <tbody>
             <tr>
@@ -1625,7 +1788,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div style="display: flex; flex-direction:row;justify-content: space-between;margin-top: 20px;">
+                    <div style="display: flex; flex-direction:row;justify-content: space-between;margin-top: 200px;">
 
                         <div style="background-color: #a3a3a3;font-size: bold;font-weight: bold;">
                             <span style="font-weight: bold;">For Bank User Only</span>
@@ -1645,9 +1808,32 @@
             </tr>
         </tbody>
     </table>
-    <p style="page-break-before: always"></p>
+
     {{/each}}
 
 </body>
+
+<script>
+    function formatDate() {
+        let dateFields = document.getElementsByClassName("dateFomatter");
+        for (let i = 0; i < dateFields.length; i++) {
+            let date = new Date(dateFields[i].innerHTML);
+            dateFields[i].innerHTML = date.toLocaleDateString('en-GB', {
+                day: '2-digit', month: 'short', year: 'numeric'
+            }).replace(/ /g, '-');
+        }
+    }
+
+    function formatCurrentDate() {
+        let dateFields = document.getElementsByClassName("dateRightNow");
+        for (let i = 0; i < dateFields.length; i++) {
+            let date = new Date(dateFields[i].innerHTML);
+            dateFields[i].innerHTML = date.toLocaleDateString('en-GB');
+        }
+    }
+
+    formatDate();
+    formatCurrentDate();
+</script>
 
 </html>
