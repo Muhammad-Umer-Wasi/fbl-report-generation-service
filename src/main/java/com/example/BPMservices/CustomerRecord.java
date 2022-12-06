@@ -1,6 +1,7 @@
 package com.example.BPMservices;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class CustomerRecord {
 
@@ -12,6 +13,7 @@ public class CustomerRecord {
     private String[] CustomerDetails;
     private String Status;
     private String ErrorMessage;
+    private String ReportCreatedAt;
 
     public CustomerRecord(int id, int excelID, Timestamp createdAt, String createdBy, String customerData,
             String status) {
@@ -22,6 +24,7 @@ public class CustomerRecord {
         CustomerData = customerData;
         Status = status;
         CustomerDetails = customerData.split("\\^");
+        ReportCreatedAt = LocalDateTime.now().toString();
     }
 
     public CustomerRecord(int excelID) {
@@ -90,6 +93,14 @@ public class CustomerRecord {
 
     public void setCustomerDetails(String[] customerDetails) {
         CustomerDetails = customerDetails;
+    }
+
+    public String getReportCreatedAt() {
+        return ReportCreatedAt;
+    }
+
+    public void setReportCreatedAt(String reportCreatedAt) {
+        ReportCreatedAt = reportCreatedAt;
     }
 
 }
