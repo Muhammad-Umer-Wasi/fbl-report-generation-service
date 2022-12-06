@@ -106,9 +106,7 @@ public class BpmServicesApplication implements CommandLineRunner {
 			System.out.println("Report Generated!");
 			System.out.println("Successfully updated the database.");
 
-		} catch (
-
-		Exception ex) {
+		} catch (Exception ex) {
 			System.out.println("error running thread " + ex.getMessage());
 		}
 	}
