@@ -16,9 +16,13 @@ public class DatabaseConfig {
   private String DEV_USERNAME = "BPMFBLDB";
   private String DEV_PASSWORD = "BPMFBLDB";
 
-  private String FBL_URL = "jdbc:oracle:thin:@10.14.0.71:1521/bpmdev";
-  private String FBL_USERNAME = "BPMFBLDB";
-  private String FBL_PASSWORD = "bpmfbldb_123";
+  private String FBL_DEV_URL = "jdbc:oracle:thin:@10.14.0.71:1521/bpmdev";
+  private String FBL_DEV_USERNAME = "BPMFBLDB";
+  private String FBL_DEV_PASSWORD = "bpmfbldb_123";
+
+  private String FBL_UAT_URL = "jdbc:oracle:thin:@10.14.0.127:1521/bpmprodpdb";
+  private String FBL_UAT_USERNAME = "BPMFBLDB";
+  private String FBL_UAT_PASSWORD = "bpmfbldb_123";
 
   @Bean
   @Primary
@@ -26,9 +30,9 @@ public class DatabaseConfig {
   public DataSource dataSource() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource();
     dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-    dataSource.setUrl(DEV_URL);
-    dataSource.setUsername(DEV_USERNAME);
-    dataSource.setPassword(DEV_PASSWORD);
+    dataSource.setUrl(FBL_UAT_URL);
+    dataSource.setUsername(FBL_UAT_USERNAME);
+    dataSource.setPassword(FBL_UAT_PASSWORD);
     return dataSource;
   }
 
