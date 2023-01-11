@@ -66,12 +66,9 @@ public class BpmServicesApplication implements CommandLineRunner {
 				LookUp.setLookup_Hidden_Value(us.getLookup_Hidden_Value());
 				LookUp.setLookup_Visible_Value(us.getLookup_Visible_Value());
 				list.add(LookUp);
-				
+
 			});
 			data.add(row);
-
-			// for (LookUp us : list)
-			// System.out.println(us.getLookup_Hidden_Value());
 
 			Map<Integer, String> excelSheets = new HashMap<>();
 
@@ -105,7 +102,6 @@ public class BpmServicesApplication implements CommandLineRunner {
 								rs.getString("ERROR_MESSAGE"), accountTyRecord.getAccountType());
 
 					});
-			
 
 			TemplateLoader loader = new ClassPathTemplateLoader("/handlebars", ".html");
 			Handlebars handlebars = new Handlebars(loader);
@@ -124,7 +120,6 @@ public class BpmServicesApplication implements CommandLineRunner {
 					FileWriter fileWriter = new FileWriter(reportFile);
 					fileWriter.write(templateString);
 					fileWriter.close();
-					
 				} catch (IOException e) {
 					System.out.println("Error while writing to reports");
 					e.printStackTrace();

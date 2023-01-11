@@ -15,16 +15,13 @@ public class CustomerRecord {
     private String ErrorMessage;
     private String ReportCreatedAt;
     private String AccountType;
+
     public CustomerRecord() {
     }
-
-
 
     public CustomerRecord(String accountType) {
         AccountType = accountType;
     }
-
-   
 
     public String getAccountType() {
         return AccountType;
@@ -35,7 +32,7 @@ public class CustomerRecord {
     }
 
     public CustomerRecord(int id, int excelID, Timestamp createdAt, String createdBy, String customerData,
-            String status, String errorMessage, String accountType ) {
+            String status, String errorMessage, String accountType) {
         Id = id;
         ExcelID = excelID;
         CreatedAt = createdAt;
