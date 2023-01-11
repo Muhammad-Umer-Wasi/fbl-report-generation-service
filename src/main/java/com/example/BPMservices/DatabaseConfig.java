@@ -30,9 +30,9 @@ public class DatabaseConfig {
   public DataSource dataSource() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource();
     dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-    dataSource.setUrl(FBL_UAT_URL);
-    dataSource.setUsername(FBL_UAT_USERNAME);
-    dataSource.setPassword(FBL_UAT_PASSWORD);
+    dataSource.setUrl(DEV_URL);
+    dataSource.setUsername(DEV_USERNAME);
+    dataSource.setPassword(DEV_PASSWORD);
     return dataSource;
   }
 

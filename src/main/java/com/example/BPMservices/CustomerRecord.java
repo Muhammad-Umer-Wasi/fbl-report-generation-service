@@ -14,9 +14,28 @@ public class CustomerRecord {
     private String Status;
     private String ErrorMessage;
     private String ReportCreatedAt;
+    private String AccountType;
+    public CustomerRecord() {
+    }
+
+
+
+    public CustomerRecord(String accountType) {
+        AccountType = accountType;
+    }
+
+   
+
+    public String getAccountType() {
+        return AccountType;
+    }
+
+    public void setAccountType(String accountType) {
+        AccountType = accountType;
+    }
 
     public CustomerRecord(int id, int excelID, Timestamp createdAt, String createdBy, String customerData,
-            String status, String errorMessage) {
+            String status, String errorMessage, String accountType ) {
         Id = id;
         ExcelID = excelID;
         CreatedAt = createdAt;
@@ -26,6 +45,8 @@ public class CustomerRecord {
         CustomerDetails = customerData.split("\\^");
         ReportCreatedAt = LocalDateTime.now().toString();
         ErrorMessage = errorMessage;
+        AccountType = accountType;
+
     }
 
     public CustomerRecord(int excelID) {
