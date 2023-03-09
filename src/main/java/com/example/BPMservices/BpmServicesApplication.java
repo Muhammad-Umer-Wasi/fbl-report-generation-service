@@ -123,6 +123,7 @@ public class BpmServicesApplication implements CommandLineRunner {
 				} catch (IOException e) {
 					System.out.println("Error while writing to reports");
 					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			});
 
