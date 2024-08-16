@@ -15,6 +15,7 @@
             outline: none;
             font-family: "Calibri", sans-serif;
             -webkit-print-color-adjust: exact;
+            /* font-size: 12px; */
         }
 
         .flex {
@@ -90,7 +91,7 @@
     <p style="page-break-before: always"></p>
 
     <!-- Page Header -->
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between" >
         <div>
             <div class="flex items-center">
                 <h2 class="bolder">{{lookup accountType}}</h2>
@@ -106,10 +107,8 @@
     <!-- Page Header End -->
 
     <table border="1" cellspacing="0" cellpadding="0">
-        <tbody>
+        <tbody  style="font-size: 13px;">
             <tr>
-               
-               
                 <td colspan="19" valign="top" width="1000">
                     <p class="TableParagraph"><strong>For Bank Use
                             Only&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -282,7 +281,7 @@
                 </td>
                 <td colspan="8" valign="top" width="300">
                     <!-- <p class="TableParagraph">&nbsp;</p> -->
-                    <p class="TableParagraph"><strong>{{lookup customerDetails 5}}</strong></p>
+                    <p class="TableParagraph"><strong>{{lookup customerDetails 32}}</strong></p>
                 </td>
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>14.</strong></p>
@@ -304,7 +303,7 @@
                 </td>
                 <td colspan="16" valign="top" width="648">
                     <p class="TableParagraph"><strong>
-                            <p class="TableParagraph"><strong>{{lookup customerDetails 5}}</strong></p>
+                            <p class="TableParagraph"><strong>{{lookup customerDetails 16}}</strong></p>
                         </strong></p>
                 </td>
             </tr>
@@ -316,7 +315,7 @@
                     <p class="TableParagraph"><strong>Country of Birth</strong></p>
                 </td>
                 <td colspan="16" valign="top" width="648">
-                    <p class="TableParagraph"><strong>{{lookup customerDetails 16}}</strong></p>
+                    <p class="TableParagraph"><strong>{{lookup customerDetails 31}}</strong></p>
                 </td>
             </tr>
             <tr>
@@ -457,7 +456,7 @@
                     <p class="TableParagraph"><strong>Correspondence Country</strong></p>
                 </td>
                 <td colspan="8" valign="top" width="300">
-                    <p class="TableParagraph"><strong>to ask</strong></p>
+                    <p class="TableParagraph"><strong></strong></p>
                 </td>
                 <td valign="top" width="30">
                     <p class="TableParagraph" align="center"><strong>30.</strong></p>
@@ -618,7 +617,7 @@
 
     <table width="1000" border="1" cellspacing="0" cellpadding="0">
 
-        <tbody>
+        <tbody style="font-size: 13px;">
 
             <tr>
                
@@ -812,7 +811,7 @@
 
             <tr>
                 <td colspan="12" valign="top" width="134">
-                    <p class="TableParagraph">Please<input type="checkbox" checked="true"
+                    <p class="TableParagraph">Please<input type="checkbox"
                             style="margin: 0px 12px;" />Yes or No to the following
                         questions
                         (as application):</p>
@@ -898,7 +897,7 @@
     <!-- Page Header End -->
 
     <table border="1" cellspacing="0" cellpadding="0">
-        <tbody>
+        <tbody style="font-size: 13px;">
             <tr>
                 <td colspan="19" valign="top" width="1000">
                     <p class="TableParagraph"><strong>For Bank Use
@@ -1100,7 +1099,7 @@
                     <p class="TableParagraph"><strong>Source of Income</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
-                    <p class="TableParagraph"><strong>SALARY ask</strong></p>
+                    <p class="TableParagraph"><strong>SALARY</strong></p>
                 </td>
             </tr>
             <tr>
@@ -1133,7 +1132,7 @@
                     <p class="TableParagraph"><strong>Occupation</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
-                    <p class="TableParagraph">&nbsp;</p>
+                    <p class="TableParagraph"><strong>{{lookup customerDetails 10}}</strong></p>
                 </td>
             </tr>
             <tr>
@@ -1144,7 +1143,7 @@
                     <p class="TableParagraph"><strong>Operational Instruction</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
-                    <p class="TableParagraph"><strong>Single</strong></p>
+                    <p class="TableParagraph"><strong>{{lookup customerDetails 29}}</strong></p>
                 </td>
             </tr>
             <tr>
@@ -1166,7 +1165,7 @@
                     <p class="TableParagraph"><strong>Nearest Landmark</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
-                    <p class="TableParagraph"><strong>BLESSING HOME HIGH SCHOOL AL MASOOM TOWN FAISALABAD</strong></p>
+                    <p class="TableParagraph"><strong></strong></p>
                 </td>
             </tr>
             <tr>
@@ -1188,7 +1187,7 @@
                     <p class="TableParagraph"><strong>Designation</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
-                    <p class="TableParagraph"><strong>-</strong></p>
+                    <p class="TableParagraph"><strong>{{lookup customerDetails 109}}</strong></p>
                 </td>
             </tr>
             <tr>
@@ -1199,7 +1198,7 @@
                     <p class="TableParagraph"><strong>Monthly Gross Salary</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
-                    <p class="TableParagraph"><strong>50000</strong></p>
+                    <p class="TableParagraph"><strong>{{lookup customerDetails 17}}</strong></p>
                 </td>
             </tr>
             <tr>
@@ -1210,7 +1209,7 @@
                     <p class="TableParagraph"><strong>Net Monthly Income</strong></p>
                 </td>
                 <td colspan="2" valign="top" width="648">
-                    <p class="TableParagraph"><strong>{{lookup customerDetails 17}}</strong>></p>
+                    <p class="TableParagraph"><strong></strong></p>
                 </td>
             </tr>
             <tr>
@@ -1256,7 +1255,7 @@
     <!-- Page Header End -->
 
     <table border="1" cellspacing="0" cellpadding="0">
-        <tbody>
+        <tbody style="font-size: 13px;">
             <tr>
                 <td colspan="7" valign="top" width="1000">
                     <p class="TableParagraph"><strong>For Bank Use
@@ -1493,9 +1492,9 @@
         </tbody>
     </table>
 
+    <!-- <br></br>
     <br></br>
-    <br></br>
-    <br></br>
+    <br></br> -->
     <br></br>
 
     <!-- fifth page -->
@@ -1516,7 +1515,7 @@
     <!-- Page Header End -->
 
     <table border="1" cellspacing="0" cellpadding="0">
-        <tbody>
+        <tbody style="font-size: 13px;">
             <tr>
                 <td colspan="7" valign="top" width="1000">
                     <p class="TableParagraph"><strong>For Bank Use
@@ -1616,7 +1615,7 @@
     <!-- Page Header End -->
 
     <table border="1" cellspacing="0" cellpadding="0">
-        <tbody>
+        <tbody style="font-size: 13px;">
             <tr>
                 <td colspan="2" valign="top" width="933">
                     <p class="TableParagraph">&nbsp;</p>
